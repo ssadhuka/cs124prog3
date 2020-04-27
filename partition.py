@@ -18,10 +18,8 @@ class MaxHeap(object):
                 
         def max_heapify(self, v):
                 #for v in range(n/2, -1, -1):
-                # print(self.heap)
                 left = 2*v + 1
                 right = left + 1
-                #print(v, left, right)
                 if (left < len(self.heap)) and (self.heap[left] > self.heap[v]):
                         largest = left
                 else:
@@ -76,13 +74,12 @@ def Karmarkar_Karp(inputs):
                 return 0
     
 def main():                    
-        test_example = [1, 1, 1, 2]   
+        # test_example = [1, 1, 1, 2]   
         max_iter = 5         
         test_example = list(np.random.randint(int(1e12), size=100))
-        print(test_example)
-        #print(test_example)
         best_residue = 1e12
         max_iter = 25000
+        
         for i in range(max_iter):
                 R1, R2 = 0, 0
                 for j in range(len(test_example)):
@@ -92,7 +89,6 @@ def main():
                                 R2 += test_example[j]
                 
                 random_residue = abs(R1-R2)
-                #KK_residue = Karmarkar_Karp(test)
                 if random_residue < best_residue:
                         best_residue = random_residue
         print("Repeated Random, no prepartition, ", best_residue)
